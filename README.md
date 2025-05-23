@@ -109,7 +109,7 @@ TARGET_IP : 라즈베리파이 IP 주소 입력
 
 ex : `http://192.168.0.105:8081/`
 
-![alt text](9.png)
+![alt text](resources/9.png)
 
 - 버튼을 누르면 장치 제어를 할 수 있음.
 
