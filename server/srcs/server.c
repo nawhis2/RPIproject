@@ -184,7 +184,9 @@ void *clnt_connection(void *arg)
         if (qmark != NULL)
             *qmark = '\0';  // ?부터 자름
 
-        if (strncmp(filename, "led_", 3) == 0)
+        if (strcmp(filename, "") == 0 || strcmp(filename, "index.html") == 0)
+        {}
+        else if (strncmp(filename, "led_", 3) == 0)
         {
             pthread_create(&tid, NULL, led_thread, &filename[4]);
             pthread_join(tid, NULL);
