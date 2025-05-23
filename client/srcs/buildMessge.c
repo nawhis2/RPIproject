@@ -22,7 +22,7 @@ int createMessage(char *cmd)
 
 int communicateWithServer(char *message)
 {
-    char recvBuf[4096] = {0};
+    char recvBuf[8192] = {0};
 
     int nbytes = send(sockfd, message, strlen(message), 0);
     if (nbytes <= 0)

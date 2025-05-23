@@ -68,6 +68,5 @@ re: clean all
 # Send command
 send: 
 	scp $(BIN) $(LIBS_SO) $(HOSTNAME)@$(TARGET_IP):~/
-	scp startServer.sh $(HOSTNAME)@$(TARGET_IP):~/
 
 .PHONY: all clean send re
