@@ -1,6 +1,7 @@
 #include "server.h"
 
 extern pthread_mutex_t buzz_mutex;
+extern int music_stop;
 
 typedef void (*FUNC)(void*);
 void* buzz_thread(void *arg)
@@ -20,9 +21,10 @@ void* buzz_thread(void *arg)
         return NULL;
     }
     
-    arg_t args = {&buzz_mutex, arg};
+    arg_t args = {&buzz_mutex, &music_stop};
 
     buzzfunc(&args);
+    music_stop = 0;
     dlclose(handle);
     return NULL;
 }

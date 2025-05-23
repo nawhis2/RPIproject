@@ -5,7 +5,10 @@ static void *clnt_connection(void *arg);
 
 int led_light = 0;
 int pr_light;
+int music_stop = 0;
+
 char proj_dir[128];
+
 pthread_mutex_t led_mutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t buzz_mutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t pr_mutex = PTHREAD_MUTEX_INITIALIZER;
@@ -203,7 +206,7 @@ void *clnt_connection(void *arg)
         }
         else if (strcmp(filename, "buzz_off") == 0)
         {
-            softToneStop(SPKR);
+            music_stop = 1;
             // softToneWrite(SPKR, 0);
         }
         else if (strcmp(filename, "pr") == 0)

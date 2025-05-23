@@ -10,10 +10,16 @@ int notes[] = { 	/* 학교종을 연주하기 위한 계이름 */
 void buzz_control(void *arg)
 {
     arg_t* args = (arg_t*)arg;
-
+    int *flag = (int*)args->arg;
     pthread_mutex_lock(args->mutex);
     softToneCreate(SPKR); 	/* 톤 출력을 위한 GPIO 설정 */
     for (int i = 0; i < TOTAL; ++i) {
+        if (*flag)
+        {
+            pthread_mutex_unlock(args->mutex);
+            softToneStop(SPKR);
+            break;
+        }
         softToneWrite(SPKR, notes[i]); /* 톤 출력 : 학교종 연주 */
         delay(280); 		/* 음의 전체 길이만큼 출력되도록 대기 */
     }
