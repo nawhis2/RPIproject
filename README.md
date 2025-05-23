@@ -73,7 +73,7 @@ TARGET_IP : 라즈베리파이 IP 주소 입력
 
 이후 프로젝트 홈 디렉토리에 생성된 Client 실행파일을 실행
 
-`Usage : ./Client <IP address> <port>
+`Usage : ./Client <IP address> <port>`
 
 ![alt text](resources/4.png)
 
