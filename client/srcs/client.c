@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
 
 		int opt;
 		scanf("%d", &opt);
-		getchar();  // 버퍼에 남아 있는 개행 제거
+		getchar();
 
 		char data[64];
 		memset(data, 0, sizeof(data));
@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
 				printf("Select brightness ([1] LOW, [2] MID, [3] HIGH, [4] OFF):\n");
 				fputs(">> ", stdout);
 				fgets(input, sizeof(input), stdin);
-				input[strcspn(input, "\n")] = 0; // 개행 제거
+				input[strcspn(input, "\n")] = 0;
 
 				if (strcasecmp(input, "1") == 0)
 					strcpy(data, "led_10 ");
@@ -83,13 +83,13 @@ int main(int argc, char *argv[])
 				break;
 			}
 
-			case 2: // Buzzer
+			case 2:
 			{
 				char input[16];
 				printf("[1] ON  |  [0] OFF\n");
 				fputs(">> ", stdout);
 				fgets(input, sizeof(input), stdin);
-				input[strcspn(input, "\n")] = 0; // 개행 제거
+				input[strcspn(input, "\n")] = 0;
 
 				if (strcasecmp(input, "1") == 0)
 					strcpy(data, "buzz_on ");
@@ -102,17 +102,17 @@ int main(int argc, char *argv[])
 				break;
 			}
 
-			case 3: // CDS
+			case 3:
 				strcpy(data, "pr ");
 				break;
 
-			case 4: // Segment
+			case 4:
 			{
 				char input[4];
 				printf("Input a digit (0~9):\n");
 				fputs(">> ", stdout);
 				fgets(input, sizeof(input), stdin);
-				input[strcspn(input, "\n")] = 0; // 개행 제거
+				input[strcspn(input, "\n")] = 0;
 
 				if (strlen(input) == 1 && isdigit(input[0])) 
 				{
@@ -126,7 +126,7 @@ int main(int argc, char *argv[])
 				break;
 			}
 
-			case 5: // Exit
+			case 5:
 				printf("client shutdown\n");
 				close(sockfd);
 				exit(0);
